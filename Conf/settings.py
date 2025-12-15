@@ -26,6 +26,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,6 +97,14 @@ AUTH_PASSWORD_VALIDATORS = [
 #     "https://www.nematov.uz"
 # ]
 
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.onrender.com',
+    'muhammadalii.uz',
+    'www.muhammadalii.uz',
+]
+
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Tashkent'
 USE_I18N = True
@@ -105,9 +114,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # static papka
 ]
 
+
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'assets']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
