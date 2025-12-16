@@ -106,6 +106,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # ================= OTHER =================
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 RESUME_PATH = 'resume/'
+DEBUG = True
+
 
 # ================= RECAPTCHA =================
 RECAPTCHA_PUBLIC_KEY = "6LfzCygsAAAAAKns4sIp-FebWZpD7ZuDvUjXzvWt"
