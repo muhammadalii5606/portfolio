@@ -218,7 +218,7 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # ================= MEDIA FILES =================
 MEDIA_URL = '/media/'
@@ -228,7 +228,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 RESUME_PATH = 'resume/'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 WHITENOISE_MANIFEST_STRICT = False
+WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['.map']
 
 RECAPTCHA_PUBLIC_KEY = "6LfzCygsAAAAAKns4sIp-FebWZpD7ZuDvUjXzvWt"
 RECAPTCHA_SECRET_KEY = "6LfzCygsAAAAANMlWytBGCNUxZ-cceSf3n3b1h8c"
