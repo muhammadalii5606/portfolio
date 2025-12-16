@@ -166,6 +166,7 @@ INSTALLED_APPS = [
 # ================= MIDDLEWARE =================
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'WHITENOISE_MANIFEST_STRICT = False'
     'whitenoise.middleware.WhiteNoiseMiddleware',  # faqat bittasi
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
