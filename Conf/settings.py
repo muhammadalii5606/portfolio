@@ -166,7 +166,6 @@ INSTALLED_APPS = [
 # ================= MIDDLEWARE =================
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'WHITENOISE_MANIFEST_STRICT = False'
     'whitenoise.middleware.WhiteNoiseMiddleware',  # faqat bittasi
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -228,6 +227,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # ================= OTHER =================
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 RESUME_PATH = 'resume/'
+
+WHITENOISE_MANIFEST_STRICT = False
 
 RECAPTCHA_PUBLIC_KEY = "6LfzCygsAAAAAKns4sIp-FebWZpD7ZuDvUjXzvWt"
 RECAPTCHA_SECRET_KEY = "6LfzCygsAAAAANMlWytBGCNUxZ-cceSf3n3b1h8c"
