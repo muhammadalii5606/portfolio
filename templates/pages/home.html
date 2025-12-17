@@ -32,19 +32,35 @@
                     <div class="hero-img wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
                         <div class="img-border">
 <!--                            <img src="{% static 'assets/images/hero.jpg' %}" alt=""  class="img-fluid">-->
-                            <img src="{% static 'assets/images/hero1.jpg' %}"
-     class="rounded-circle"
+<!--                            <img src="{% static 'assets/images/hero1.jpg' %}"-->
+<!--     class="rounded-circle"-->
+<!--     alt="Muhammad Ali"-->
+<!--     style="-->
+<!--        border-radius: 50%;-->
+<!--        object-fit: cover;-->
+<!--        width: min(380px, 700vw);-->
+<!--        height: auto;-->
+<!--        aspect-ratio: 1 / 1;-->
+<!--        display: block;-->
+<!--        margin-left: auto;-->
+<!--        margin-right: auto;-->
+<!--     ">-->
+
+<img src="{% static 'assets/images/hero1.jpg' %}"
      alt="Muhammad Ali"
      style="
-        border-radius: 50%;
+        width: min(365px, 45vw);
+        height: min(365px, 45vw); /* Balandlikni 370px emas, 365px qiling, shunda mukammal doira bo‘ladi */
+        border-radius: 50%;       /* 750% emas, 50% qiling. 50% mukammal doira uchun etarli */
         object-fit: cover;
-        width: min(180px, 100vw);
-        height: auto;
-        aspect-ratio: 1 / 1;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
+        margin-top: 30px;         /* PASTGA SILJITISH: 30px. Bu matn bilan orasini ochadi */
+        overflow: hidden;
      ">
+
+
+
                         </div>
                     </div>
                 </div>
