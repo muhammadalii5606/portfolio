@@ -13,58 +13,19 @@ class PortfolioTagModel(models.Model):
         verbose_name_plural = _("Tags")
 
 
-# class PortfolioModel(models.Model):
-#     title = models.CharField(max_length=128, verbose_name=_("title"))
-#     description = models.TextField(verbose_name=_("description"))
-#     language = models.CharField(max_length=128, verbose_name=_("language"))
-#     url = models.CharField(max_length=255, verbose_name=_("url"))
-#     image1 = models.ImageField(upload_to='portfolio', verbose_name=_("image1"))
-#     image2 = models.ImageField(upload_to='portfolio', verbose_name=_("image2"))
-#
-#     tags = models.ManyToManyField(
-#         PortfolioTagModel,
-#         verbose_name=_("tag"),
-#         related_name=_("portfolios")
-#     )
-#
-#     def __str__(self):
-#         return self.title
-#
-#     class Meta:
-#         verbose_name = _('Portfolio')
-#         verbose_name_plural = _('Portfolios')
-
 class PortfolioModel(models.Model):
     title = models.CharField(max_length=128, verbose_name=_("title"))
     description = models.TextField(verbose_name=_("description"))
     language = models.CharField(max_length=128, verbose_name=_("language"))
     url = models.CharField(max_length=255, verbose_name=_("url"))
-    # FileField yoki ImageField (faylni o'zi saqlanadi, lekin faqat nomi kerak)
-    image1 = models.FileField(upload_to='portfolio', verbose_name=_("image1"), blank=True)
-    image2 = models.FileField(upload_to='portfolio', verbose_name=_("image2"), blank=True)
+    image1 = models.ImageField(upload_to='portfolio', verbose_name=_("image1"))
+    image2 = models.ImageField(upload_to='portfolio', verbose_name=_("image2"))
 
     tags = models.ManyToManyField(
         PortfolioTagModel,
         verbose_name=_("tag"),
-        related_name="portfolios"
+        related_name=_("portfolios")
     )
-
-    # ✅ YANGI: To'liq static URL ni qaytaruvchi property (ENG QULAY)
-    @property
-    def image1_static_url(self):
-        if self.image1:
-            # Fayl nomini olish: 'portfolio/aylana.png' -> 'aylana.png'
-            filename = self.image1.name.split('/')[-1]
-            # To'liq static yo'lni qaytarish
-            return f'assets/images/portfolio/{filename}'
-        return ''
-
-    @property
-    def image2_static_url(self):
-        if self.image2:
-            filename = self.image2.name.split('/')[-1]
-            return f'assets/images/portfolio/{filename}'
-        return ''
 
     def __str__(self):
         return self.title
@@ -72,18 +33,6 @@ class PortfolioModel(models.Model):
     class Meta:
         verbose_name = _('Portfolio')
         verbose_name_plural = _('Portfolios')
-
-class TechnicalSkillsModel(models.Model):
-    lang = models.CharField(max_length=64, verbose_name=_("language"))
-    value = models.IntegerField(verbose_name=_("percentage %"))
-
-    def __str__(self) -> str:
-        return self.lang
-
-    class Meta:
-        verbose_name = _("TechnicalSkill")
-        verbose_name_plural = _('TechnicalSkills')
-
 
 class ProfessionalSkillsModel(models.Model):
     title = models.CharField(max_length=128, verbose_name=_("title"))
@@ -188,5 +137,3 @@ class ResumeModel(models.Model):
     class Meta:
         verbose_name = _("Resume")
         verbose_name_plural = _("Resumes")
-
-
