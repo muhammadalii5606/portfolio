@@ -11,8 +11,7 @@ SECRET_KEY = config(
     default='django-insecure-k9$##c5#jg7z&1yq=4r1a(f5e-v#we&4ekh0lcmoa)dp7z)=97'
 )
 
-DEBUG = config('DEBUG', default=True, cast=bool)
-
+DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
@@ -106,8 +105,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # ================= OTHER =================
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 RESUME_PATH = 'resume/'
-DEBUG = True
 
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # ================= RECAPTCHA =================
 RECAPTCHA_PUBLIC_KEY = '6LewVy8sAAAAAPNugF8l4885_Ie1PXCTmtzKEqx8'
