@@ -95,7 +95,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 
 
 # ================= MEDIA =================
@@ -109,7 +109,7 @@ RESUME_PATH = 'resume/'
 
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # ================= RECAPTCHA =================
 RECAPTCHA_PUBLIC_KEY = '6LewVy8sAAAAAPNugF8l4885_Ie1PXCTmtzKEqx8'
